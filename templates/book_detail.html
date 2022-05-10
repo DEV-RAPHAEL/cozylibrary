@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>Cozy Library -{{ book.title }}</title>
+    <title>{{ book.title }}</title>
 {% endblock title %}
 
 {% block content %}
     <div class="book-detail">
       <h2><a href="">{{ book.title }}</a></h2>
-      <p>{{ book.author }}</p>
+      <p>Author: {{ book.author }}</p>
       <p>{{ book.description }}</p>
-      <p>{{ book.category }}</p>
+      <p>Category: {{ book.category }}</p>
     </div>
+
+    {% if user.is_superuser %}
+        <div>
+          <p><a href="{% url 'book_update' book.pk %}">+ Edit Book</a></p>
+          <p><a href="{% url 'book_delete' book.pk %}">+ Delete Book</a></p>
+        </div>
+    {% endif %}
+    
 {% endblock content %}
