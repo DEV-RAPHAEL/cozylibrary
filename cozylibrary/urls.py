@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.urls import path
 from . import views
 
@@ -9,3 +10,7 @@ urlpatterns = [
     path('book/<int:pk>/update/', views.BookUpdateView.as_view(), name='book_update'),
     path('book/<int:pk>/delete/', views.BookDeleteView.as_view(), name='book_delete'),
 ]
+
+admin.site.site_header = 'Cozy Library'
+admin.site.site_title = 'Cozy Library'
+admin.site.index_title = 'Welcome to the Cozy Library'
