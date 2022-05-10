@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Cozy Library -{{ book.title }}</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="book-detail">
+      <h2><a href="">{{ book.title }}</a></h2>
+      <p>{{ book.author }}</p>
+      <p>{{ book.description }}</p>
+      <p>{{ book.category }}</p>
+    </div>
+{% endblock content %}
