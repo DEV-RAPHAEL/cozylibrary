@@ -13,6 +13,18 @@
     <body>
         <header>
             <h1><a href="{% url 'home' %}">Cozy Library</a></h1>
+            {% if user.is_superuser %}
+            <h2><a href="{% url 'book_new' %}">+ Add New Book</a></h2>
+            {% endif %}
+
+
+            {% if user.is_authenticated %}
+                <p>Hi {{ user.username }}!</p>
+                <p><a href="">Log out</a></p>
+            {% else %}
+                <p>You are not logged in.</p>
+                <a href="">Log In</a>
+            {% endif %}
         </header>
         <section>
             {% block content %}
