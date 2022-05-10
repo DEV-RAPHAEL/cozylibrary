@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Search</title>
+  {% endblock title %}
+
+
+  {% block content %}
+  <div class="wrapper">
+    {% if searched %}
+        <div class="heading">
+          <h1> You searched for "{{ searched }}" </h1>
+        </div>
+        {% if library %}
+            <div class="cards_wrap">
+              {% for book in library %}
+                  <div class="card_item">
+                    <div class="card_inner">
+                      <div class="card_top">
+                        <a href="{% url 'book_detail' book.pk %}" class="">
+                         <img src="{{ book.cover.url}}" alt="Cover photo">
+                        </a>
+                      </div>
+                      <div class="card_bottom">
+                      <div class="card_category">
+                        <p>{{ book.category }}</p>
+                      </div>
+                      <div class="card_info">
+                        <p class="title">{{ book.title }}</p>
+                        <p class="author">{{ book.author}}</p>
+                      </div>
+                      <div class="price">
+                        ₦ {{ book.price }}
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+               {% endfor %}
+          </div>
+        {% else %}
+          <div class="heading">
+            <h1> No results found </h1>
+          </div>
+          
+        {% endif %}
+    {% else %}
+        <div class="heading">
+          <h1> You forgot to add query... </h1>
+        </div>      
+    {% endif %}
+  </div>
+  {% endblock content%}

@@ -9,8 +9,10 @@ urlpatterns = [
     path('book/new/', views.BookCreateView.as_view(), name='book_new'),
     path('book/<int:pk>/update/', views.BookUpdateView.as_view(), name='book_update'),
     path('book/<int:pk>/delete/', views.BookDeleteView.as_view(), name='book_delete'),
+    path('search', views.search, name='book_search'),
+    path('category/<str:category>/', views.category, name='book_category'),
 ]
 
-admin.site.site_header = 'Cozy Library'
+admin.site.site_header = 'Cozy Library Dashboard'
 admin.site.site_title = 'Cozy Library'
 admin.site.index_title = 'Welcome to the Cozy Library'
