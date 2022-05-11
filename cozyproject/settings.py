@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cozylibrary',
     'crispy_forms',
+    'ckeditor',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -9,6 +9,7 @@ pillow = "*"
 python-dotenv = "*"
 whitenoise = "*"
 django-crispy-forms = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 
