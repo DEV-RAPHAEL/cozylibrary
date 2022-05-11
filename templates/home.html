@@ -5,12 +5,24 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container">
-        <p>{{ books.count }} books.</p>
-        {% for book in books %}
-            <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>
-            <p>{{ book.author }}</p>
-        {% endfor %}
+    <div class="container my-5">
+        <div class="text-center mt-4">
+            <p>{{ books.count }} books.</p>
+        </div>
+        <div class="row justify-content-center align-items-center gx-1 gy-3">
+            {% for book in books %}
+            <div class="col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                <a href="{% url 'book_detail' book.pk %}">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ book.cover.url}}" class="card-img-top" alt="Cover photo">
+                    <div class="card-body">
+                      <p class="card-text">{{ book.title }} | {{ book.author }}</p>
+                    </div>
+                </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
     
 {% endblock content %}
+
