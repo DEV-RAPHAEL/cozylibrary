@@ -6,17 +6,20 @@
 
 {% block content %}
     <div class="container">
-      <h2><a href="">{{ book.title }}</a></h2>
-      <p>Author: {{ book.author }}</p>
-      <p>{{ book.description }}</p>
-      <p>Category: {{ book.category }}</p>
-    </div>
+      <div>
+        <h2><a href="">{{ book.title }}</a></h2>
+        <p>Author: {{ book.author }}</p>
+        <p>{{ book.description | safe}}</p>
+        <p>Category: {{ book.category }}</p>
+      </div>
+      
+    
 
-    {% if user.is_superuser %}
+      {% if user.is_superuser %}
         <div>
           <p><a href="{% url 'book_update' book.pk %}">+ Edit Book</a></p>
           <p><a href="{% url 'book_delete' book.pk %}">+ Delete Book</a></p>
         </div>
-    {% endif %}
-    
+      {% endif %}
+    </div>
 {% endblock content %}
