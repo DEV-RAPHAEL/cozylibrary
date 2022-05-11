@@ -6,12 +6,13 @@
 
 
   {% block content %}
-  <div class="wrapper">
+  <div class="container">
     {% if searched %}
         <div class="heading">
           <h1> You searched for "{{ searched }}" </h1>
         </div>
         {% if library %}
+            <p>{{ library.count }} result(s).</p>
             <div class="cards_wrap">
               {% for book in library %}
                   <div class="card_item">

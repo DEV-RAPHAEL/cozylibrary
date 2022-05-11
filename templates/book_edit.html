@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="book-update">
+    <div class="container">
         <h2>Edit Book</h2>
         <form action="{% url 'book_update' book.pk %}" method="POST">{% csrf_token %}
             {{ form|crispy}}

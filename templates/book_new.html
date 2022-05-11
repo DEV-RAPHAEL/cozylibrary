@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="book-new">
+    <div class="container">
       <h2>Add New Book</h2>
         <form action="{% url 'book_new' %}" method="POST">{% csrf_token %}
             {{ form|crispy }}

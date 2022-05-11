@@ -5,11 +5,12 @@
 {% endblock title %}
 
 {% block content %}
-<p>{{ books.count }} books.</p>
-    {% for book in books %}
-        <div class="book-entry">
-        <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>
-        <p>{{ book.author }}</p>
-        </div>
-    {% endfor %}
+    <div class="container">
+        <p>{{ books.count }} books.</p>
+        {% for book in books %}
+            <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>
+            <p>{{ book.author }}</p>
+        {% endfor %}
+    </div>
+    
 {% endblock content %}
