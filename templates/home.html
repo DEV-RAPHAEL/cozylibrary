@@ -5,6 +5,7 @@
 {% endblock title %}
 
 {% block content %}
+<p>{{ books.count }} books.</p>
     {% for book in books %}
         <div class="book-entry">
         <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>

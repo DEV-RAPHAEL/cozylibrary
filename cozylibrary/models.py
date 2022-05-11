@@ -12,8 +12,9 @@ class Book(models.Model):
     year = models.IntegerField(default=0)
     language = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=1000, blank=True)
-    cover_image = models.ImageField(upload_to='covers/', default='/covers/default.jpg', blank=True)
+    cover_image = models.ImageField(upload_to='covers/', default='/covers/default.jpg')
     created_at = models.DateTimeField(default=datetime.now)
+    views = models.IntegerField(default=0)  
 
 
     def __str__(self):
@@ -21,3 +22,7 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('book_detail', args=[str(self.id)])
+
+    def views_increment(self):
+        self.views += 1
+        self.save()

@@ -11,6 +11,8 @@ urlpatterns = [
     path('book/<int:pk>/delete/', views.BookDeleteView.as_view(), name='book_delete'),
     path('search', views.search, name='book_search'),
     path('category/<str:category>/', views.category, name='book_category'),
+    path('popular/', views.popular, name='book_popular'),
+    path('recent', views.recently_added, name='book_recent'),
 ]
 
 admin.site.site_header = 'Cozy Library Dashboard'

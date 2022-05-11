@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Cozy Library</title>
+  {% endblock %}
+  {% block content %}
+  <div>
+    <h3> {{ category }}</h3>
+    <div>
+      {% for book in library %}
+        <div>
+          <div>
+            <img src="{{ book.cover.url}}" -imgop" alt="Cover photo">
+              <div>
+                <p>{{ book.title}}</p>
+                <p>₦ {{ book.price}}</p>
+              </div>
+          </div>
+        </div>
+        <br/>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock content%}

@@ -13,11 +13,15 @@ class BookListView(ListView):
     template_name = 'home.html'
 
     def get_queryset(self):
-        return models.Book.objects.all().order_by('-created_at')
+        return models.Book.objects.all().order_by('?')
 
 
 class BookDetailView(DetailView):
     model = models.Book
+    def get_object(self, queryset=None):
+        item = super().get_object(queryset)
+        item.views_increment()
+        return item
     context_object_name = 'book'
     template_name = 'book_detail.html'
 
@@ -56,3 +60,10 @@ def category(request, category):
     library = models.Book.objects.all().filter(category__icontains=category)
     return render(request, 'book_category.html', {'library': library, 'category': category})
 
+def popular(request):
+    library = models.Book.objects.all().order_by('-views')
+    return render(request, 'book_popular.html', {'library': library})
+
+def recently_added(request):
+    library = models.Book.objects.all().order_by('-created_at')
+    return render(request, 'book_recently_added.html', {'library': library})

@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 python-dotenv = "*"
 whitenoise = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
