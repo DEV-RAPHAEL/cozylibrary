@@ -13,6 +13,7 @@ urlpatterns = [
     path("category/<str:category>/", views.category, name="book_category"),
     path("popular/", views.popular, name="book_popular"),
     path("recent", views.recently_added, name="book_recent"),
+    path("about", views.about, name="book_about"),
 ]
 
 admin.site.site_header = "Cozy Library Dashboard"

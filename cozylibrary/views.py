@@ -83,3 +83,6 @@ def popular(request):
 def recently_added(request):
     library = models.Book.objects.all().order_by("-created_at")
     return render(request, "book_recently_added.html", {"library": library})
+
+def about(request):
+    return render(request, "about.html")
