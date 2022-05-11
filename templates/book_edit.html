@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block title %}
     <title>Edit- {{ book.title }}</title>
 {% endblock title %}
@@ -8,7 +8,7 @@
     <div class="book-update">
         <h2>Edit Book</h2>
         <form action="{% url 'book_update' book.pk %}" method="POST">{% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy}}
             <input type="submit" value="Update Book">
         </form>
     </div>
