@@ -7,23 +7,35 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Book',
+            name="Book",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('author', models.CharField(max_length=255)),
-                ('category', models.CharField(blank=True, max_length=255)),
-                ('pages', models.IntegerField(default=0)),
-                ('price', models.FloatField(default=0.99)),
-                ('year', models.IntegerField(default=0)),
-                ('language', models.CharField(blank=True, max_length=255)),
-                ('description', models.CharField(blank=True, max_length=1000)),
-                ('cover_image', models.ImageField(blank=True, default='/covers/default.jpg', upload_to='covers/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("author", models.CharField(max_length=255)),
+                ("category", models.CharField(blank=True, max_length=255)),
+                ("pages", models.IntegerField(default=0)),
+                ("price", models.FloatField(default=0.99)),
+                ("year", models.IntegerField(default=0)),
+                ("language", models.CharField(blank=True, max_length=255)),
+                ("description", models.CharField(blank=True, max_length=1000)),
+                (
+                    "cover_image",
+                    models.ImageField(
+                        blank=True, default="/covers/default.jpg", upload_to="covers/"
+                    ),
+                ),
             ],
         ),
     ]

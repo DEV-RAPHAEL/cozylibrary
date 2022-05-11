@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cozylibrary', '0003_book_views'),
+        ("cozylibrary", "0003_book_views"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='book',
-            name='cover_image',
-            field=models.ImageField(default='/covers/default.jpg', upload_to='covers/'),
+            model_name="book",
+            name="cover_image",
+            field=models.ImageField(default="/covers/default.jpg", upload_to="covers/"),
         ),
     ]

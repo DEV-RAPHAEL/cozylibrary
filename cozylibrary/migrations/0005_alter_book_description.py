@@ -7,13 +7,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cozylibrary', '0004_alter_book_cover_image'),
+        ("cozylibrary", "0004_alter_book_cover_image"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='book',
-            name='description',
+            model_name="book",
+            name="description",
             field=ckeditor.fields.RichTextField(blank=True, max_length=1000),
         ),
     ]

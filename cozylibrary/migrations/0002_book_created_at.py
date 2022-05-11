@@ -7,13 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cozylibrary', '0001_initial'),
+        ("cozylibrary", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='book',
-            name='created_at',
+            model_name="book",
+            name="created_at",
             field=models.DateTimeField(default=datetime.datetime.now),
         ),
     ]
