@@ -14,7 +14,7 @@ class BookListView(ListView):
     template_name = "home.html"
 
     def get_queryset(self):
-        return models.Book.objects.all().order_by("?")[:25]
+        return models.Book.objects.all().order_by("-views")[:25]
 
 
 class BookDetailView(DetailView):
@@ -73,12 +73,6 @@ def category(request, category):
     return render(
         request, "book_category.html", {"books": books, "category": category}
     )
-
-
-def popular(request):
-    books = models.Book.objects.all().order_by("-views")
-    return render(request, "book_popular.html", {"books": books})
-
 
 def recently_added(request):
     books = models.Book.objects.all().order_by("-created_at")
