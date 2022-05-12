@@ -5,12 +5,17 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container">
-        <h2>Delete Book</h2>
-        <form action="{% url 'book_delete' book.pk %}" method="POST">{% csrf_token %}
-            <p>Are you sure you want to delete {{ book.title }}?</p>
-            <input type="submit" value="Delete Book">
-        </form>
-        
+    <div class="container my-5">
+        <div class="text-center">
+            <h2>Delete Book</h2>
+            <form action="{% url 'book_delete' book.pk %}" method="POST">{% csrf_token %}
+                <p>Are you sure you want to delete {{ book.title }} by {{book.author }}?</p>
+                <div class="text-center my-3">
+                    <p><button type="submit" class="btn btn-success">No, go back.</button>
+                    <a href="{% url 'book_detail' book.pk %}"><button type="submit" class="btn btn-danger">Yes, delete!</button></a></p>
+                </div>
+            </form>
+
+        </div>
     </div>
 {% endblock content %}

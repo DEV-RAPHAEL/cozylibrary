@@ -5,11 +5,15 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container">
-      <h2>Add New Book</h2>
+    <div class="container my-5">
+        <div class="text-center">
+            <h2>Add New Book</h2>
+        </div>
         <form action="{% url 'book_new' %}" method="POST">{% csrf_token %}
             {{ form|crispy }}
-            <input type="submit" value="Add Book">
+            <div class="text-center my-3">
+                <button type="submit" class="btn btn-success">Add Book</button>
+            </div>
         </form>
     </div>
 {% endblock content %}

@@ -6,48 +6,42 @@
 
 
   {% block content %}
-  <div class="container">
+  <div class="container mb-5">
     {% if searched %}
-        <div class="heading">
-          <h1> You searched for "{{ searched }}" </h1>
+        <div class="text-center my-3">
+          <h2> You searched for "{{ searched }}" </h2>
         </div>
-        {% if library %}
-            <p>{{ library.count }} result(s).</p>
-            <div class="cards_wrap">
-              {% for book in library %}
-                  <div class="card_item">
-                    <div class="card_inner">
-                      <div class="card_top">
-                        <a href="{% url 'book_detail' book.pk %}" class="">
-                         <img src="{{ book.cover.url}}" alt="Cover photo">
-                        </a>
-                      </div>
-                      <div class="card_bottom">
-                      <div class="card_category">
-                        <p>{{ book.category }}</p>
-                      </div>
-                      <div class="card_info">
-                        <p class="title">{{ book.title }}</p>
-                        <p class="author">{{ book.author}}</p>
-                      </div>
-                      <div class="price">
-                        ₦ {{ book.price }}
-                      </div>
-                      </div>
+        {% if books %}
+            <div class="text-center my-3">
+                <h3>{{ books.count }} result(s).</h3>
+            </div>
+            <div class="row justify-content-center gx-1 gy-3 border-top border-success border-4 pt-3">
+              {% for book in books %}
+              <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                <a href="{% url 'book_detail' book.pk %}">
+                <div class="card mx-auto d-block" style="width: 200px;">
+                    <img src="{{ book.cover_image.url}}" class="card-img-top rounded mx-auto d-block" alt="Cover photo" style="height: auto; width: 180px">
+                    <div class="card-body">
+                      <p class="card-text">{{ book.title }} | {{ book.author }}</p>
                     </div>
-                  </div>
+                </div>
+                </a>
+              </div>
                {% endfor %}
           </div>
         {% else %}
-          <div class="heading">
-            <h1> No results found </h1>
+          <div class="text-center my-3">
+            <h2> No results found </h2>
           </div>
           
         {% endif %}
     {% else %}
-        <div class="heading">
-          <h1> You forgot to add query... </h1>
+        <div class="text-center my-3">
+          <h2> You forgot to add query... </h2>
         </div>      
     {% endif %}
   </div>
   {% endblock content%}
+
+
+    

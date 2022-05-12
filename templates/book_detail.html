@@ -5,21 +5,33 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container">
-      <div>
-        <h2><a href="">{{ book.title }}</a></h2>
-        <p>Author: {{ book.author }}</p>
-        <p>{{ book.description | safe}}</p>
-        <p>Category: {{ book.category }}</p>
+    <div class="container my-5 p-3">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{ book.cover_image.url}}" class="img-fluid rounded-start mx-auto d-block p-2" alt="Cover photo" style="height: auto; width: 250px">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><a href="">{{ book.title }}</a></h5>
+              <p class="card-text">Author: {{ book.author }}</p>
+              <p class="card-text">Description: {{ book.description | safe}}</p>
+              <p class="card-text">Language: {{ book.language }}</p>
+              <p class="card-text">Pages: {{ book.pages }}</p>
+              <p class="card-text">Year: {{ book.year }}</p>
+
+            </div>
+          </div>
+        </div>
+        {% if user.is_superuser %}
+        <div class="text-center my-5">
+          <p><a href="{% url 'book_update' book.pk %}"><button type="submit" class="btn btn-success">Edit Book</button></a>
+          <a href="{% url 'book_delete' book.pk %}"><button type="submit" class="btn btn-danger">Delete Book</button></a></p>
+        </div>
+      
+        {% endif %}
       </div>
       
-    
-
-      {% if user.is_superuser %}
-        <div>
-          <p><a href="{% url 'book_update' book.pk %}">+ Edit Book</a></p>
-          <p><a href="{% url 'book_delete' book.pk %}">+ Delete Book</a></p>
-        </div>
-      {% endif %}
     </div>
 {% endblock content %}
+

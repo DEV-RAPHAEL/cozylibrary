@@ -14,7 +14,7 @@ class BookListView(ListView):
     template_name = "home.html"
 
     def get_queryset(self):
-        return models.Book.objects.all().order_by("?")
+        return models.Book.objects.all().order_by("?")[:25]
 
 
 class BookDetailView(DetailView):
@@ -50,39 +50,39 @@ class BookDeleteView(DeleteView):
 def search(request):
     if request.method == "POST":
         searched = request.POST["searched"]
-        library = models.Book.objects.all().filter(
+        books = models.Book.objects.all().filter(
             Q(title__icontains=searched)
             | Q(author__icontains=searched)
             | Q(category__icontains=searched)
             | Q(description__icontains=searched)
         )
-        if library:
+        if books:
             return render(
-                request, "book_search.html", {"searched": searched, "library": library}
+                request, "book_search.html", {"searched": searched, "books": books}
             )
         else:
             return render(
-                request, "book_search.html", {"searched": searched, "library": None}
+                request, "book_search.html", {"searched": searched, "books": None}
             )
     else:
         return render(request, "book_search.html", {})
 
 
 def category(request, category):
-    library = models.Book.objects.all().filter(category__icontains=category)
+    books = models.Book.objects.all().filter(category__icontains=category)
     return render(
-        request, "book_category.html", {"library": library, "category": category}
+        request, "book_category.html", {"books": books, "category": category}
     )
 
 
 def popular(request):
-    library = models.Book.objects.all().order_by("-views")
-    return render(request, "book_popular.html", {"library": library})
+    books = models.Book.objects.all().order_by("-views")
+    return render(request, "book_popular.html", {"books": books})
 
 
 def recently_added(request):
-    library = models.Book.objects.all().order_by("-created_at")
-    return render(request, "book_recently_added.html", {"library": library})
+    books = models.Book.objects.all().order_by("-created_at")
+    return render(request, "book_recently_added.html", {"books": books})
 
 def about(request):
     return render(request, "about.html")

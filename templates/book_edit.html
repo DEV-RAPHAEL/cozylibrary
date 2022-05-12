@@ -6,10 +6,14 @@
 
 {% block content %}
     <div class="container">
-        <h2>Edit Book</h2>
+        <div class="text-center">
+            <h1>Edit- {{ book.title }}</h1>
+        </div>
         <form action="{% url 'book_update' book.pk %}" method="POST">{% csrf_token %}
             {{ form|crispy}}
-            <input type="submit" value="Update Book">
+            <div class="text-center my-3">
+                <button type="submit" class="btn btn-success">Update Book</button>
+            </div>
         </form>
     </div>
 {% endblock content %}
