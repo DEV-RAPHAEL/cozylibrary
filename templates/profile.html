@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Cozy Library</title>
+  {% endblock %}
+  {% block content %}
+  <div class="container my-5">
+      <div class="text-center">
+        <h2>User Profile</h2>
+      </div>
+      <div class="text-center">
+        {% if user.is_authenticated %}
+        <a class="nav-link" aria-current="page" href="#">Hi {{ user.username }}!</a>
+        <a class="nav-link" href="{% url 'logout' %}">Sign Out</a>
+        <a class="nav-link" href="{% url 'password_reset' %}">Reset Password</a>
+        <a class="nav-link" href="{% url 'password_change' %}">Change Password</a>
+        {% else %}
+        <a class="nav-link" href="#">You are not logged in!</a>
+        <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+      </div>
+      
+  </div>
+  {% endblock %}

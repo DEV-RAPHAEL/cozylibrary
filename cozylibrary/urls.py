@@ -14,6 +14,7 @@ urlpatterns = [
     path("popular/", views.popular, name="book_popular"),
     path("recent", views.recently_added, name="book_recent"),
     path("about", views.about, name="book_about"),
+    path("profile", views.profile, name="profile"),
 ]
 
 admin.site.site_header = "Cozy Library Dashboard"
