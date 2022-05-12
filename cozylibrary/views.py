@@ -12,7 +12,7 @@ class BookListView(ListView):
     model = models.Book
     context_object_name = "books"
     template_name = "home.html"
-    paginate_by = 4
+    #paginate_by = 4
 
     def get_queryset(self):
         return models.Book.objects.all().order_by("-views")
