@@ -39,7 +39,7 @@ class BookCreateView(CreateView):
 class BookUpdateView(UpdateView):
     model = models.Book
     fields = "__all__"
-    template_name = "book_update.html"
+    template_name = "book_edit.html"
 
 
 class BookDeleteView(DeleteView):
