@@ -18,6 +18,7 @@ class Book(models.Model):
     cover_image = models.ImageField(upload_to="covers/", default="/covers/default.jpg")
     created_at = models.DateTimeField(default=datetime.now)
     views = models.IntegerField(default=0)
+    book = models.FileField(default="/books/default.pdf", upload_to="books/")
 
     def __str__(self):
         return self.title
