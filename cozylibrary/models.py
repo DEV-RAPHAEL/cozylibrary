@@ -7,8 +7,8 @@ from ckeditor.fields import RichTextField
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=255, default='Dapo Adedire')
-    author = models.CharField(max_length=255, default='Dapo Adedire')
+    title = models.CharField(max_length=255, default="Dapo Adedire")
+    author = models.CharField(max_length=255, default="Dapo Adedire")
     category = models.CharField(max_length=255, blank=True)
     pages = models.IntegerField(default=0)
     price = models.FloatField(default=0.99)

@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cozylibrary', '0005_alter_book_description'),
+        ("cozylibrary", "0005_alter_book_description"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='book',
-            name='author',
-            field=models.CharField(default='Dapo Adedire', max_length=255),
+            model_name="book",
+            name="author",
+            field=models.CharField(default="Dapo Adedire", max_length=255),
         ),
         migrations.AlterField(
-            model_name='book',
-            name='language',
-            field=models.CharField(default='English', max_length=255),
+            model_name="book",
+            name="language",
+            field=models.CharField(default="English", max_length=255),
         ),
         migrations.AlterField(
-            model_name='book',
-            name='title',
-            field=models.CharField(default='Dapo Adedire', max_length=255),
+            model_name="book",
+            name="title",
+            field=models.CharField(default="Dapo Adedire", max_length=255),
         ),
     ]

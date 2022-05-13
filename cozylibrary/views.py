@@ -12,7 +12,7 @@ class BookListView(ListView):
     model = models.Book
     context_object_name = "books"
     template_name = "home.html"
-    #paginate_by = 4
+    # paginate_by = 4
 
     def get_queryset(self):
         return models.Book.objects.all().order_by("-views")
@@ -71,13 +71,13 @@ def search(request):
 
 def category(request, category):
     books = models.Book.objects.all().filter(category__icontains=category)
-    return render(
-        request, "book_category.html", {"books": books, "category": category}
-    )
+    return render(request, "book_category.html", {"books": books, "category": category})
+
 
 def recently_added(request):
     books = models.Book.objects.all().order_by("-created_at")
     return render(request, "book_recently_added.html", {"books": books})
+
 
 def about(request):
     return render(request, "about.html")
