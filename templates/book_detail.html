@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container my-5 p-3">
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card mb-3 mx-auto d-block" style="max-width: 1200px;">
         <div class="row g-0 justify-content-center">
           <div class="col-md-4">
             <img src="{{ book.cover_image.url}}" class="img-fluid rounded-start mx-auto d-block p-2" alt="Cover photo" style="height: auto; width: 250px">
@@ -19,7 +19,7 @@
               <p class="card-text">Language: {{ book.language }}</p>
               <p class="card-text">Pages: {{ book.pages }}</p>
               <p class="card-text">Year: {{ book.year }}</p>
-              <a href="{{ book.book.url }}" download>Download</a>
+              <a href="{{ book.book.url }}" download><button type="submit" class="btn btn-success">Download</button></a>
 
             </div>
           </div>
