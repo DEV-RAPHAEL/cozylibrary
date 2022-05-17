@@ -3,8 +3,7 @@ from django.utils.timezone import datetime
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 
-# Create your models here.
-
+# Create your models here
 
 class Book(models.Model):
     title = models.CharField(max_length=255, default="Dapo Adedire")
