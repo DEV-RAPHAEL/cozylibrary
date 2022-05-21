@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 
 # Create your models here
 
+
 class Book(models.Model):
     title = models.CharField(max_length=255, default="Dapo Adedire")
     author = models.CharField(max_length=255, default="Dapo Adedire")

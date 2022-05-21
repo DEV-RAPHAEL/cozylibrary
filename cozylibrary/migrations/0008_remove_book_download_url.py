@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cozylibrary', '0007_book_download_url'),
+        ("cozylibrary", "0007_book_download_url"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='book',
-            name='download_url',
+            model_name="book",
+            name="download_url",
         ),
     ]

@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cozylibrary', '0008_remove_book_download_url'),
+        ("cozylibrary", "0008_remove_book_download_url"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='book',
-            name='book',
-            field=models.FileField(default='/books/default.pdf', upload_to='books/'),
+            model_name="book",
+            name="book",
+            field=models.FileField(default="/books/default.pdf", upload_to="books/"),
         ),
     ]
