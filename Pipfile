@@ -10,6 +10,7 @@ python-dotenv = "*"
 whitenoise = "*"
 django-crispy-forms = "*"
 django-ckeditor = "*"
+gunicorn = "*"
 
 [dev-packages]
 
